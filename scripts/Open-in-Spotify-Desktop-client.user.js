@@ -3,12 +3,14 @@
 // @description  Opens spotify links in the desktop app
 // @version      0.1
 // @author       yungsamd17
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/yungsamd17/UserScripts
+// @downloadURL  https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js
 // @license      MIT License
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=spotify.com
 // @match        https://open.spotify.com/*
 // @run-at       document-start
 // @noframes
+// @updateURL    https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js
 // ==/UserScript==
 
 (function() {

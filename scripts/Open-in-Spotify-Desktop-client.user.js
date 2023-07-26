@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Open in Spotify Desktop client
 // @description  Opens spotify links in the desktop app
-// @version      0.1
+// @version      0.2
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @downloadURL  https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js
@@ -22,5 +22,5 @@
     setTimeout(function() {
       console.log("Closing tab");
       window.close();
-    }, 500);
+    }, 100);
 })();

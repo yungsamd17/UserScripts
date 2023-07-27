@@ -1,4 +1,3 @@
-# UserScripts
 📝 Useful **Tampermonkey** userscripts.
 
 - [Open in Spotify Desktop client](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js)

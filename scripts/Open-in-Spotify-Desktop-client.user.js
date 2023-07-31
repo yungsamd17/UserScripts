@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Open in Spotify Desktop client
 // @description  Opens spotify links in the desktop app
-// @version      1.0
+// @version      1.1
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
@@ -17,9 +17,4 @@
     var data=document.URL.match(/[\/\&](track|playlist|album|artist|show|episode)\/([^\&\#\/\?]+)/i);
     console.log("This is a "+data[1]+" with id:"+data[2]+"\nAttempting to redirect");
     window.location.replace('spotify:'+data[1]+':'+data[2]);
-
-    setTimeout(function() {
-      console.log("Closing tab");
-      window.close();
-    }, 100);
 })();

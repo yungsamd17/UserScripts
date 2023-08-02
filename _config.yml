@@ -1,2 +1,7 @@
 remote_theme: alexrybicki/dark_slate
-description: ''
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      description: ""

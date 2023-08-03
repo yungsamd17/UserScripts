@@ -7,7 +7,7 @@
 // @license      MIT License
 // @downloadURL  https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js
 // @updateURL    https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=spotify.com
+// @icon         https://raw.githubusercontent.com/yungsamd17/UserScripts/main/scripts/icons/Open-in-Spotify.png
 // @match        https://open.spotify.com/*
 // @run-at       document-start
 // ==/UserScript==

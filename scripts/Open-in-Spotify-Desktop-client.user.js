@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Open in Spotify Desktop client
 // @description  Opens spotify links in the desktop app
-// @version      1.1
+// @version      1.2
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License

@@ -7,7 +7,7 @@
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)
     - Changes tabs title on load with channels username on player.twitch.tv pages.
 - [Restore Twitter tab's title and icon](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Restore-Twitter-tabs-title-and-icon.user.js)
-    - Restores [Twitter](https://twitter.com/) tab's title and icon back to Birdie.
+    - Restores Twitter tab's title and icon back to Birdie.
 
 ## How to Install 
 

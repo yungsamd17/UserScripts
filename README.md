@@ -6,6 +6,8 @@
     - `Video Ad-Block, for Twitch` (fork) as a script.
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)
     - Changes tabs title on load with channels username on player.twitch.tv pages.
+- [Remove Twitter Verify buttons and banners](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Remove-Twitter-Verify-from-Home-page.user.js)
+    - Removes Verify banner from Home page and Verified button on side pannel.
 - [Restore Twitter tab's title and icon](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Restore-Twitter-tabs-title-and-icon.user.js)
     - Restores Twitter tab's title and icon back to Birdie.
 

@@ -6,6 +6,8 @@
     - `Video Ad-Block, for Twitch` (fork) as a script.
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)
     - Changes tabs title on load with channels username on player.twitch.tv pages.
+- [PayCheck for Twitter](https://github.com/yungsamd17/twitter-paycheck/raw/main/PayCheck-for-Twitter.user.js) / [Repo](https://github.com/yungsamd17/twitter-paycheck)
+    - _**UserScript** to see (a very VERY rough idea of) how much money a post(Tweet) is worth._
 - [Remove Twitter Verify buttons and banners](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Remove-Twitter-Verify-from-Home-page.user.js)
     - Removes Verify banner from Home page and Verified button on side pannel.
 - [Restore Twitter tab's title and icon](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Restore-Twitter-tabs-title-and-icon.user.js)

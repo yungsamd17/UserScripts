@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         GitHub Repo Traffic Button
 // @description  Add a button to view current repo traffic on GitHub
-// @version      1.0
+// @version      1.1
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
 // @downloadURL  https://github.com/yungsamd17/UserScripts/raw/main/scripts/Github-Repo-Traffic-Button.user.js
 // @updateURL    https://github.com/yungsamd17/UserScripts/raw/main/scripts/Github-Repo-Traffic-Button.user.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
-// @match        https://github.com/*
+// @match        https://github.com/*/*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==

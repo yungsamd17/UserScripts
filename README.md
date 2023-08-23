@@ -5,6 +5,8 @@
 - [TwitchAdSolutions (vaft)](https://github.com/yungsamd17/TwitchAdSolutions/raw/master/vaft/vaft.user.js) / [Repo](https://github.com/yungsamd17/TwitchAdSolutions)
     - `Video Ad-Block, for Twitch` (fork) as a script.
     - *Full screen ad message displayed during ads.*
+- [Twitch Screenshot](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Screenshot.user.js)
+    - Adds a button to the Twitch Player to enable you to take and downloading screenshots.
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)
     - Changes tabs title on load with channels username on player.twitch.tv pages.
 - [PayCheck for Twitter](https://github.com/yungsamd17/paycheck-userscript/raw/main/userscript/paycheck-for-twitter.user.js) / [Repo](https://github.com/yungsamd17/paycheck-userscript)

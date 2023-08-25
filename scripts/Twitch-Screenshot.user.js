@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Screenshot
 // @description  Adds a button to the Twitch Player to enable you to take and downloading screenshots.
-// @version      1.1
+// @version      1.2
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
@@ -73,7 +73,7 @@
 
         buttonText.style.color = 'white';
         buttonText.style.margin = '0 6px 0 6px';
-        buttonText.style.fontWeight = 'normal';
+        buttonText.style.fontWeight = 'bold';
 
         button.appendChild(buttonText);
 

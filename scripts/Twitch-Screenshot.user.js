@@ -109,7 +109,7 @@
         button.addEventListener('click', captureScreenshot);
 
         // Find the element with class
-        const targetClass = '.Layout-sc-1xcs6mc-0.lfucH.player-controls__right-control-group';
+        const targetClass = '[class*="Layout-sc-1xcs6mc-0"][class*="player-controls__right-control-group"]';
         const targetElement = document.querySelector(targetClass);
 
         if (targetElement) {

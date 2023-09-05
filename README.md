@@ -2,9 +2,9 @@
 
 - [Open in Spotify Desktop client](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js)
     - Opens Spotify links in the desktop app and then closes the tab.
-- [TwitchAdSolutions (vaft)](https://github.com/yungsamd17/TwitchAdSolutions/raw/master/vaft/vaft.user.js) / [Repo](https://github.com/yungsamd17/TwitchAdSolutions)
-    - `Video Ad-Block, for Twitch` (fork) as a script.
-    - *Full screen ad message displayed during ads.*
+- [Video Ad-Block, for Twitch (vaft)](https://github.com/yungsamd17/TwitchAdSolutions/raw/master/vaft/vaft.user.js) / [Repo](https://github.com/yungsamd17/TwitchAdSolutions)
+    - [`Video Ad-Block, for Twitch`](https://github.com/cleanlock/VideoAdBlockForTwitch) **fork** as a script.
+    - *Message displayed during ads when they are getting blocked.*
 - [Twitch Screenshot](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Screenshot.user.js)
     - Adds a button to the Twitch Player to enable you to take and downloading screenshots.
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)

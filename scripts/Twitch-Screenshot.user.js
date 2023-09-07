@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Screenshot
 // @description  Adds a button to the Twitch Player to enable you to take and downloading screenshots.
-// @version      1.3
+// @version      1.4
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
@@ -64,6 +64,11 @@
     // Function to create and style the button
     function createButton() {
         console.log("%cTwitch Screenshot:", "color: #9147ff", "Creating button...");
+        
+        // Create a div wrapper for the button
+        const divWrapper = document.createElement('div');
+        divWrapper.classList.add('twitch-screenshot-userscript');
+        
         const button = document.createElement('button');
 
         // Button hover tooltip
@@ -110,13 +115,16 @@
         // Click event listener on the button
         button.addEventListener('click', captureScreenshot);
 
+        // Append the button to the div wrapper
+        divWrapper.appendChild(button);
+
         // Find the element with class
         const targetClass = '[class*="Layout-sc-1xcs6mc-0"][class*="player-controls__right-control-group"]';
         const targetElement = document.querySelector(targetClass);
 
         if (targetElement) {
-            // Insert the button as the first child of the target element
-            targetElement.insertBefore(button, targetElement.firstChild);
+            // Insert the div wrapper as the first child of the target element
+            targetElement.insertBefore(divWrapper, targetElement.firstChild);
             console.log("%cTwitch Screenshot:", "color: #9147ff", "Button created and inserted.");
         } else {
             console.log("%cTwitch Screenshot: Target element not found!", "color: #ff8080");

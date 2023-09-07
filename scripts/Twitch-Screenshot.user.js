@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Twitch Screenshot
-// @description  Adds a button to the Twitch Player to enable you to take and downloading screenshots.
+// @description  Adds a button to the Twitch Player to enable you to take and download screenshots.
 // @version      1.4
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts

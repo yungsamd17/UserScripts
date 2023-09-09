@@ -2,7 +2,7 @@
 
 - [Open in Spotify Desktop client](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js)
     - Opens Spotify links in the desktop app and then closes the tab.
-- [Video Ad-Block, for Twitch (vaft)](https://github.com/yungsamd17/TwitchAdSolutions/raw/master/vaft/vaft.user.js) / [Repo](https://github.com/yungsamd17/TwitchAdSolutions)
+- [Video Ad-Block, for Twitch (VAFT)](https://github.com/yungsamd17/TwitchAdSolutions/raw/master/vaft/vaft.user.js) / [Repo](https://github.com/yungsamd17/TwitchAdSolutions)
     - [`Video Ad-Block, for Twitch`](https://github.com/cleanlock/VideoAdBlockForTwitch) **fork** as a script.
     - *Message displayed during ads when they are getting blocked.*
 - [Twitch Screenshot](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Screenshot.user.js)

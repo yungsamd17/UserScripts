@@ -6,7 +6,8 @@
     - [`Video Ad-Block, for Twitch`](https://github.com/cleanlock/VideoAdBlockForTwitch) **fork** as a script.
     - *Message displayed during ads when they are getting blocked.*
 - [Twitch Screenshot](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Screenshot.user.js)
-    - Adds a button to the Twitch Player to enable you to take and download screenshots.
+    - Adds a button to the Twitch Player to enable you to copy to clipboard and download screenshots.
+    - **Firefox users** need to go to `about:config` and set `dom.events.asyncClipboard.clipboardItem` to `true` in order to be able to copy screenshot to clipboard.
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)
     - Changes tabs title on load with channels username on player.twitch.tv pages.
 - [PayCheck for Twitter](https://github.com/yungsamd17/paycheck-userscript/raw/main/userscript/paycheck-for-twitter.user.js) / [Repo](https://github.com/yungsamd17/paycheck-userscript)

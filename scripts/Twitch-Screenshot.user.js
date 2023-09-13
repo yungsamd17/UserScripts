@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Screenshot
 // @description  Adds a button to the Twitch Player to enable you to copy to clipboard and download screenshots.
-// @version      1.6
+// @version      1.7
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
@@ -20,7 +20,7 @@
 (function() {
     'use strict';
 
-    // Function to capture for copying to clipboard and downloading the screenshot
+    // capture for copy to clipboard and downloading
     async function captureScreenshot() {
         const videoElement = document.querySelector('video');
         if (videoElement) {
@@ -29,9 +29,7 @@
             canvas.height = videoElement.videoHeight;
             const ctx = canvas.getContext('2d');
             ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-    
             const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-    
             try {
                 await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
                 console.log("%cTwitch Screenshot:", "color: #9147ff", "Screenshot copied to clipboard.");
@@ -39,11 +37,9 @@
                 console.log("%cTwitch Screenshot: Screenshot failed to copy to clipboard!", "color: #ff8080");
             }
 
-            const timestamp = getFormattedTimestamp();
-
+            const timestamp = getTimestamp();
             const dataURL = canvas.toDataURL('image/png');
-
-            // Create a temporary anchor element for downloading
+            // temp anchor element for downloading
             const downloadLink = document.createElement('a');
             downloadLink.href = dataURL;
             downloadLink.download = `Twitch-Screenshot-${timestamp}.png`;
@@ -51,96 +47,88 @@
         }
     }
 
-    // Function to get the formatted timestamp in the local time zone
-    function getFormattedTimestamp() {
+    // event listener for Alt + S screenshot shortcut
+    window.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === 's' || event.key === 'S') {
+            captureScreenshot();
+        }
+    });
+    
+    // get timestamp in local time
+    function getTimestamp() {
         const now = new Date();
         const options = {
-            weekday: 'short',
             month: 'short',
             day: 'numeric',
             year: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
-            second: '2-digit',
             hour12: true,
         };
 
         return now.toLocaleString('en-US', options)
             .replace(/ /g, '-')
-            .replace(/:/g, '_')
-            .replace(/,/g, '');
+            .replace(/:/g, '_');
     }
 
-    // Function to create and style the button
+    // button CSS style
+    const customStyles = `
+        .screenshot-button {
+            background-color: #9147ff;
+            border: none;
+            border-radius: 0.4rem;
+            margin-right: 6px;
+            padding: 5px 2px 5px 2px;
+            cursor: pointer;
+            width: auto;
+            height: 30px;
+            display: inline-block;
+            align-items: center;
+        }
+        .screenshot-button:hover {
+            background-color: #772ce8;
+        }
+        .screenshot-button:active {
+            background-color: #5c16c5;
+        }
+        .button-text {
+            color: white;
+            margin: 0 6px 0 6px;
+            font-weight: bold;
+        }
+    `;
+
+    const styleElement = document.createElement('style');
+    styleElement.textContent = customStyles;
+    document.head.appendChild(styleElement);
+
+    // create elements
     function createButton() {
-        console.log("%cTwitch Screenshot:", "color: #9147ff", "Creating button...");
-        
-        // Create a div wrapper for the button
         const divWrapper = document.createElement('div');
         divWrapper.classList.add('twitch-screenshot-userscript');
-        
         const button = document.createElement('button');
-
-        // Button hover tooltip
-        button.title = 'Click to take a screenshot.';
-
-        // Create a span element for the button text
+        button.title = 'Take a screenshot (alt+s)'; // button hover
         const buttonText = document.createElement('span');
-        buttonText.textContent = 'Screenshot';
-
-        buttonText.style.color = 'white';
-        buttonText.style.margin = '0 6px 0 6px';
-        buttonText.style.fontWeight = 'bold';
-
-        button.appendChild(buttonText);
-
-        // Button style
-        button.style.backgroundColor = '#9147ff';
-        button.style.border = 'none';
-        button.style.borderRadius = '5px';
-        button.style.margin = '0 6px 0 6px';
-        button.style.padding = '5px 2px 5px 2px'
-        button.style.cursor = 'pointer';
-        button.style.width = 'auto';
-        button.style.display = 'flex';
-        button.style.alignItems = 'center';
-
-        // Button hover
-        button.addEventListener('mouseenter', function() {
-            button.style.backgroundColor = '#772ce8';
-        });
-
-        button.addEventListener('mouseleave', function() {
-            button.style.backgroundColor = '#9147ff';
-        });
-
-        button.addEventListener('mousedown', function() {
-            button.style.backgroundColor = '#5c16c5';
-        });
-
-        button.addEventListener('mouseup', function() {
-            button.style.backgroundColor = '#772ce8';
-        });
-
-        // Click event listener on the button
+        buttonText.textContent = 'Screenshot'; // button Text
+        button.className = 'screenshot-button';
+        // button click event listener
         button.addEventListener('click', captureScreenshot);
-
-        // Append the button to the div wrapper
+        // append the button text to the button
+        buttonText.className = 'button-text';
+        button.appendChild(buttonText);
+        // append the button to the div wrapper
         divWrapper.appendChild(button);
-
-        // Find the element with class
+        // find the element with class
         const targetClass = '[class*="Layout-sc-1xcs6mc-0"][class*="player-controls__right-control-group"]';
         const targetElement = document.querySelector(targetClass);
-
         if (targetElement) {
-            // Insert the div wrapper as the first child of the target element
             targetElement.insertBefore(divWrapper, targetElement.firstChild);
-            console.log("%cTwitch Screenshot:", "color: #9147ff", "Button created and inserted.");
+            console.log("%cTwitch Screenshot:", "color: #9147ff", "Button created.");
         } else {
-            console.log("%cTwitch Screenshot: Target element not found!", "color: #ff8080");
+            console.error("Twitch Screenshot: Target element not found!");
         }
     }
 
-    // Wait for the page load, then create the button
+    // wait for the page load, then create the button
     window.addEventListener('load', createButton);
 })();

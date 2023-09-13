@@ -9,6 +9,7 @@
     - Quick and easy way to download Twitch Clips.
 - [Twitch Screenshot](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Screenshot.user.js)
     - Adds a button to the Twitch Player to enable you to copy to clipboard and download screenshots.
+    - You can also use keyboard shortcut **(alt+s)** to take screenshots.
     - **Firefox users** need to go to `about:config` and set `dom.events.asyncClipboard.clipboardItem` to `true` in order to be able to copy screenshots to clipboard.
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)
     - Changes tabs title on load with channels username on player.twitch.tv pages.

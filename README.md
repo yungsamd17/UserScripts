@@ -1,4 +1,4 @@
-## [My UserScripts](https://github.com/yungsamd17/UserScripts)
+## [Sam's UserScripts](https://github.com/yungsamd17/UserScripts)
 
 - [Open in Spotify Desktop client](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js)
     - Opens Spotify links in the desktop app and then closes the tab.
@@ -9,7 +9,7 @@
     - Quick and easy way to download Twitch Clips.
 - [Twitch Screenshot](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Screenshot.user.js)
     - Adds a button to the Twitch Player to enable you to copy to clipboard and download screenshots.
-    - You can also use keyboard shortcut **(alt+s)** to take screenshots.
+    - You can also use keyboard shortcut **(Alt+S)** to take screenshots.
     - **Firefox users** need to go to `about:config` and set `dom.events.asyncClipboard.clipboardItem` to `true` in order to be able to copy screenshots to clipboard.
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)
     - Changes tabs title on load with channels username on player.twitch.tv pages.
@@ -19,6 +19,8 @@
     - Removes Verify banner from Home page and Verified button on side pannel.
 - [Restore Twitter tab's title and icon](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Restore-Twitter-tabs-title-and-icon.user.js)
     - Restores Twitter tab's title and icon back to Birdie.
+- [YouTube Dark Scrollbar](https://github.com/yungsamd17/UserScripts/raw/main/scripts/YouTube-Dark-Scrollbar.user.js)
+    - Sets scrollbar color to dark while using dark theme on YouTube.
 
 ## How to Install 
 

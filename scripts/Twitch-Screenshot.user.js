@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Screenshot
 // @description  Adds a button with screenshot icon to the Player to enable you to copy to clipboard/download screenshots.
-// @version      1.8
+// @version      1.9
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
@@ -56,13 +56,13 @@
                 justify-content: center;
             }
             .screenshot-button:hover {
-                background-color: rgba(255,255,255,.15);
+                background-color: rgba(255,255,255,.13);
             }
             .screenshot-button:active {
-                background-color: rgba(255,255,255,.18);
+                background-color: rgba(255,255,255,.16);
             }
-            .button-icon {
-                fill: white;
+            .screenshot-button:focus {
+                background-color: rgba(255,255,255,.13);
             }
         `;
 

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube Dark Scrollbar
-// @description  Sets scrollbar color to dark while using dark theme on YouTube .
-// @version      1.0
+// @description  Sets scrollbar color to dark while using dark theme on YouTube.
+// @version      1.1
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License

@@ -12,7 +12,7 @@
     - Adds a button to the Twitch Player to enable you to copy to clipboard and download screenshots.
     - You can also use keyboard shortcut **(Alt+S)** to take screenshots.
     - **Firefox users** need to go to `about:config` and set `dom.events.asyncClipboard.clipboardItem` to `true` in order to be able to copy screenshots to clipboard.
-- [Change player.twitch.tv Title](https://github.com/yungsamd17/Twitch-Addons/raw/main/userscripts/ChangePlayerTwitchTitle.user.js) / [Repo](https://github.com/yungsamd17/Twitch-Addons)
+- [Change player.twitch.tv Title](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Change-Player-Twitch-Title.user.js)
     - Changes tabs title on load with channels username on player.twitch.tv pages.
 - [PayCheck for Twitter](https://github.com/yungsamd17/paycheck-userscript/raw/main/userscript/paycheck-for-twitter.user.js) / [Repo](https://github.com/yungsamd17/paycheck-userscript)
     - _**UserScript** to see (a very VERY rough idea of) how much money a post(Tweet) is worth._

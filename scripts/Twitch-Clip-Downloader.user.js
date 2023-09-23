@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Clip Downloader
 // @description  Quick and easy way to download Twitch Clips.
-// @version      1.1
+// @version      1.2
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
@@ -56,6 +56,9 @@
                 background-color: #772ce8;
             }
             .twitchdownload-button:active {
+                background-color: #5c16c5;
+            }
+            .twitchdownload-button:focus {
                 background-color: #5c16c5;
             }
             .button-text {

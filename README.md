@@ -7,6 +7,7 @@
     - *Message displayed during ads when they are getting blocked.*
 - [Twitch Clip Downloader](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Clip-Downloader.user.js)
     - Quick and easy way to download Twitch Clips.
+    - Adds a **Download** button for clips to player on twitch.tv and clips.twitch.tv pages.
 - [Twitch Screenshot](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Screenshot.user.js)
     - Adds a button to the Twitch Player to enable you to copy to clipboard and download screenshots.
     - You can also use keyboard shortcut **(Alt+S)** to take screenshots.

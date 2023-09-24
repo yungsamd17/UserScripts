@@ -1,4 +1,4 @@
-## [Sam's UserScripts](https://github.com/yungsamd17/UserScripts)
+## [UserScripts](https://github.com/yungsamd17/UserScripts)
 
 - [Open in Spotify Desktop client](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Open-in-Spotify-Desktop-client.user.js)
     - Opens Spotify links in the desktop app and then closes the tab.
@@ -26,7 +26,7 @@
 ## How to Install 
 
 1. Get [Tampermonkey](https://www.tampermonkey.net/) - _(Closed Source)_ **Most Popular**<br>
-Or [Violentmonkey](https://violentmonkey.github.io) - _(Open Source)_ **Recomended**
+    Or [Violentmonkey](https://violentmonkey.github.io) - _(Open Source)_ **Recomended**
 2. Click on any userscript you would like to install on above list.
 3. Viewing one of the userscript files should prompt the given script to be added.
 4. Done

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Twitter Verify buttons and banners
 // @description  Removes Verify banner from Home page and Verified button on side pannel.
-// @version      1.1
+// @version      1.2
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
@@ -18,7 +18,7 @@
 
 (function() {
     const css = `
-    a[aria-label="Verified"], [aria-label="Get Verified"], [aria-label="Subscribe to Premium"] {
+    a[aria-label="Verified"], [aria-label="Get Verified"], [aria-label="Subscribe to Premium"], [aria-label="Premium"] {
       display: none !important;
     }
     `;

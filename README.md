@@ -25,8 +25,8 @@
 
 ## How to Install 
 
-1. Get [Tampermonkey](https://www.tampermonkey.net/) - **Most Popular**<br>
-    Or [Violentmonkey](https://violentmonkey.github.io) - **Recomended**
+1. Get [Violentmonkey](https://violentmonkey.github.io) - **Recomended**<br>
+    Or [Tampermonkey](https://www.tampermonkey.net) - **Most Popular**
 2. Click on any userscript you would like to install on above list.
 3. Viewing one of the userscript files should prompt the given script to be added.
 4. Done

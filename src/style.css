@@ -116,6 +116,10 @@ ol {
     text-decoration: underline;
 }
 
+.secondary-link {
+    color: var(--secondary-text);
+}
+
 
 @media (max-width: 578px) {
     .wrapper {

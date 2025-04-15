@@ -9,6 +9,7 @@
 // @updateURL    https://github.com/yungsamd17/UserScripts/raw/main/scripts/Restore-Twitter-tabs-title-and-icon.user.js
 // @icon         https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png
 // @match        https://twitter.com/*
+// @match        https://x.com/*
 // @grant        none
 // ==/UserScript==
 

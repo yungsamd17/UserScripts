@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Restore Twitter tab's title and icon
 // @description  Restores Twitter tab's title and icon on twitter.com (Now X i guess)
-// @version      1.1
+// @version      1.2
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License

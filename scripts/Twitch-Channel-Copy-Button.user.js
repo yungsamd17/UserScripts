@@ -1,130 +1,155 @@
 // ==UserScript==
 // @name         Twitch Channel Copy Button
-// @description  Adds a button with copy icon to the Player to enable you to copy to channel username.
-// @version      1.0
+// @description  Adds a copy-icon button to the Twitch player control bar that copies the channel name. Works on player.twitch.tv, embed.twitch.tv and www.twitch.tv/<channel> pages. Shortcut: Alt+T.
+// @version      1.1
 // @author       yungsamd17
 // @namespace    https://github.com/yungsamd17/UserScripts
 // @license      MIT License
 // @downloadURL  https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Channel-Copy-Button.user.js
 // @updateURL    https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Channel-Copy-Button.user.js
 // @icon         https://raw.githubusercontent.com/yungsamd17/UserScripts/main/scripts/icons/Twitch-Channel-Copy-Button.png
+// @match        https://www.twitch.tv/*
 // @match        https://player.twitch.tv/*
 // @match        https://embed.twitch.tv/*
-// @grant        GM_clipboard
+// @grant        GM_setClipboard
 // @run-at       document-end
 // ==/UserScript==
 
 (function() {
     'use strict';
 
-    // create the button
-    function createChannelCopyButton() {
-        // remove the button on clips pages
-        const isClipsPage = window.location.href.includes('/clip/') || window.location.href.includes('clips.twitch.tv');
-        if (isClipsPage) {
-            removeCopyButton();
-            return;
-        }
+    // Top-level www.twitch.tv routes that are not channel pages.
+    const RESERVED = new Set([
+        'directory', 'search', 'settings', 'subscriptions', 'drops',
+        'store', 'p', 'popout', 'clip', 'clips', 'videos', 'about',
+        'schedule', 'chat', 'jobs', 'turbo', 'prime', 'downloads'
+    ]);
 
-        const targetClass = '[class*="Layout-sc-1xcs6mc-0"][class*="player-controls__right-control-group"]';
-        const targetElement = document.querySelector(targetClass);
-        if (!targetElement) {
-            removeCopyButton();
-            return;
-        }
+    const isClipPage = () =>
+        window.location.href.includes('/clip/') ||
+        window.location.hostname === 'clips.twitch.tv';
 
+    const getChannelName = () => {
+        if (isClipPage()) return null;
+        const host = window.location.hostname;
+        if (host === 'player.twitch.tv' || host === 'embed.twitch.tv') {
+            try {
+                return new URLSearchParams(window.location.search).get('channel');
+            } catch (e) {
+                return null;
+            }
+        }
+        if (host === 'www.twitch.tv') {
+            const first = window.location.pathname.split('/').filter(Boolean)[0];
+            if (!first || RESERVED.has(first.toLowerCase())) return null;
+            return first;
+        }
+        return null;
+    };
+
+    const findControls = () =>
+        document.querySelector('[class*="player-controls__right-control-group"]') ||
+        document.querySelector('[data-a-target="player-controls"]');
+
+    const ensureStyle = () => {
+        if (document.getElementById('twitch-channel-copy-style')) return;
+        const style = document.createElement('style');
+        style.id = 'twitch-channel-copy-style';
+        style.textContent = [
+            '.channel-copy-btn{border:none;border-radius:50%;padding:2px;cursor:pointer;',
+            'width:30px;height:30px;display:flex;align-items:center;justify-content:center;background:transparent;}',
+            '.channel-copy-btn:hover{background-color:rgba(255,255,255,.13);}',
+            '.channel-copy-btn:active{background-color:rgba(255,255,255,.16);}',
+            '.channel-copy-btn:focus{background-color:rgba(255,255,255,.13);}'
+        ].join('');
+        document.head.appendChild(style);
+    };
+
+    const copyText = async (text) => {
+        try {
+            if (typeof GM_setClipboard === 'function') {
+                GM_setClipboard(text, 'text');
+                return;
+            }
+        } catch (e) { /* fall through to other clipboard methods */ }
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(text);
+                return;
+            }
+        } catch (e) { /* fall through to the legacy method */ }
+        const area = document.createElement('textarea');
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        document.body.removeChild(area);
+    };
+
+    const copyChannelUsername = async () => {
+        const username = getChannelName();
+        if (!username) return;
+        await copyText(username);
+        console.log('%cTwitch Channel Copy Button:', 'color: #9147ff', 'Channel username copied to clipboard.');
+    };
+
+    const removeCopyButton = () => {
         const existingButton = document.querySelector('.channel-copy-btn');
-        if (existingButton) {
+        if (existingButton) existingButton.remove();
+    };
+
+    const createButton = () => {
+        if (isClipPage()) {
+            removeCopyButton();
             return;
         }
+        const target = findControls();
+        if (!target) {
+            removeCopyButton();
+            return;
+        }
+        if (document.querySelector('.channel-copy-btn')) return;
+        if (!getChannelName()) return;
 
-        // button CSS style
-        const customStyles = `
-            .channel-copy-btn {
-                border: none;
-                border-radius: 0.4rem;
-                padding: 2px;
-                cursor: pointer;
-                width: 30px;
-                height: 30px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .channel-copy-btn:hover {
-                background-color: rgba(255,255,255,.13);
-            }
-            .channel-copy-btn:active {
-                background-color: rgba(255,255,255,.16);
-            }
-            .channel-copy-btn:focus {
-                background-color: rgba(255,255,255,.13);
-            }
-        `;
-
-        const styleElement = document.createElement('style');
-        styleElement.textContent = customStyles;
-        document.head.appendChild(styleElement);
-
-        // create the button and add insert it
-        const divWrapper = document.createElement('div');
-        divWrapper.className = 'twitch-channel-copy-btn-userscript';
+        ensureStyle();
+        const wrapper = document.createElement('div');
+        wrapper.className = 'twitch-channel-copy-btn-userscript';
         const button = document.createElement('button');
-        button.title = 'Copy Channel name (Alt+T)'; // button hover text
-        const copyButtonIcon = `
-            <svg class="copy-button-icon" viewBox="0 0 448 512" height="17" width="17">
-                <path fill="#ffffff" d="M208 0H332.1c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9V336c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V48c0-26.5 21.5-48 48-48zM48 128h80v64H64V448H256V416h64v48c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48z"></path>
-            </svg>
-        `;
         button.className = 'channel-copy-btn';
-
-        // button click event listener
-        button.addEventListener('click', copyChannelUsername);
-        button.innerHTML = copyButtonIcon;
-        divWrapper.appendChild(button);
-        // insert the div wrapper as the second-to-last child
-        const children = targetElement.children;
+        button.title = 'Copy channel name (Alt+T)';
+        button.innerHTML = [
+            '<svg class="copy-button-icon" viewBox="0 0 448 512" height="17" width="17">',
+            '<path fill="#ffffff" d="M208 0H332.1c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9V336c0 ',
+            '26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V48c0-26.5 21.5-48 48-48zM48 128h80v64H64V448H256V416h64v48c0 ',
+            '26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48z"></path></svg>'
+        ].join('');
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            copyChannelUsername();
+        });
+        wrapper.appendChild(button);
+        const children = target.children;
         if (children.length >= 2) {
-            targetElement.insertBefore(divWrapper, children[children.length - 2]);
+            target.insertBefore(wrapper, children[children.length - 2]);
         } else {
-            targetElement.appendChild(divWrapper);
+            target.appendChild(wrapper);
         }
-    }
+    };
 
-    // function to remove the button
-    function removeCopyButton() {
-        const existingButton = document.querySelector('.channel-copy-btn');
-        if (existingButton) {
-            existingButton.remove();
-        }
-    }
+    const isTyping = (event) => {
+        const el = event.target;
+        if (!el || !el.tagName) return false;
+        const tag = el.tagName.toLowerCase();
+        return tag === 'input' || tag === 'textarea' || tag === 'select' || el.isContentEditable;
+    };
 
-    async function copyChannelUsername() {
-        if (window.location.href.startsWith("https://player.twitch.tv/?channel=")) {
-            // Extract the username
-            const urlParams = new URLSearchParams(window.location.search);
-            const username = urlParams.get("channel");
-
-            // Copy username to clipboard
-            await navigator.clipboard.writeText(username);
-            console.log("%cTwitch Channel Copy Button:", "color: #9147ff", "Channel username copied to clipboard.");
-        }
-    }
-
-    // event listener for Alt+T screenshot shortcut
-    window.addEventListener('keydown', function(event) {
-        if (event.altKey && event.key === 't' || event.key === 'T') {
+    window.addEventListener('keydown', (event) => {
+        if (event.altKey && (event.key === 't' || event.key === 'T') && !isTyping(event)) {
             copyChannelUsername();
         }
     });
 
-    // MutationObserver to watch for DOM changes
-    const observer = new MutationObserver(createChannelCopyButton);
-    const observerOptions = {
-        childList: true,
-        subtree: true,
-    };
-    observer.observe(document.body, observerOptions);
-
-    createChannelCopyButton();
+    const observer = new MutationObserver(createButton);
+    observer.observe(document.body, { childList: true, subtree: true });
+    createButton();
 })();

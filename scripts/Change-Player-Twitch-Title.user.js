@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Change player.twitch.tv Title
-// @description     Changes tabs title on load with channels username on player.twitch.tv pages.
-// @version         1.3
+// @description     Changes the tab title on player.twitch.tv pages to the channel name, upgrading to the correctly-cased name once the player loads.
+// @version         1.4
 // @author          yungsamd17
 // @namespace       https://github.com/yungsamd17/UserScripts
 // @license         MIT License
@@ -16,35 +16,42 @@
 (function() {
     'use strict';
 
-    // Temp title update.
-    
-    // Check if the URL matches
-    if (window.location.href.startsWith("https://player.twitch.tv/?channel=")) {
-      // Extract the username
-      const urlParams = new URLSearchParams(window.location.search);
-      const username = urlParams.get("channel");
-    
-      // Update title
-      document.title = `${username} - Twitch Player`;
-    }
-    
-    window.onload = function() {
-      
-      // Final title update with case-sensitive channel username
-    
-      // Find the element and update the title
-      function updatePlayerTitle() {
-        const element = document.querySelector('[data-test-selector="stream-info-card-component__title-link"]');
-    
-        if (element) {
-          // Extract the username
-          const username = element.textContent.trim();
-    
-          // Update title
-          document.title = `${username} - Twitch Player`;
+    const TITLE_SUFFIX = ' - Twitch Player';
+
+    // Fall back to the URL's channel param (its casing can differ from Twitch's).
+    const getChannelFromUrl = () => {
+        try {
+            return new URLSearchParams(window.location.search).get('channel');
+        } catch (e) {
+            return null;
         }
-      }
-    
-      updatePlayerTitle();
-      console.log("%cChange player.twitch.tv Title:", "color: #9147ff", "Title Updated.");
-}})();
+    };
+
+    const applyTitle = (name) => {
+        if (name) document.title = `${name}${TITLE_SUFFIX}`;
+    };
+
+    // Upgrade to the correctly-cased name from the embed info card once it appears.
+    const updateFromInfoCard = (observer) => {
+        const el = document.querySelector('[data-test-selector="stream-info-card-component__title-link"]');
+        if (el && el.textContent.trim()) {
+            applyTitle(el.textContent.trim());
+            if (observer) observer.disconnect();
+            return true;
+        }
+        return false;
+    };
+
+    const initial = getChannelFromUrl();
+    if (initial) applyTitle(initial);
+
+    const observer = new MutationObserver(() => updateFromInfoCard(observer));
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
+    const run = () => updateFromInfoCard(observer);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run, { once: true });
+    } else {
+        run();
+    }
+})();

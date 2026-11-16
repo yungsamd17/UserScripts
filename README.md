@@ -13,11 +13,16 @@
     - You can also use keyboard shortcut **(Alt+S)** to take screenshots.
     - **Firefox users** need to go to `about:config` and set `dom.events.asyncClipboard.clipboardItem` to `true` in order to be able to copy screenshots to clipboard.
 - [Change player.twitch.tv Title](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Change-Player-Twitch-Title.user.js)
-    - Changes tabs title on load with channels username on player.twitch.tv pages.
+    - Changes the tab title on player.twitch.tv pages to the channel name.
+    - Falls back to the name in the URL, then upgrades to the correctly-cased name once the player loads.
 - [Twitch Channel Copy Button](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Channel-Copy-Button.user.js)
     - Adds a button with copy icon to the Player to enable you to copy to channel username.
+    - Works on `player.twitch.tv`, `embed.twitch.tv` and `www.twitch.tv/<channel>` pages.
     - Useful for [Chatterino](https://chatterino.com) users to quickly open a channel in a new tab. *(Best with Ctrl+K)*
-    - You can also use keyboard shortcut **(Alt+T)** to copy channel name.
+    - You can also use keyboard shortcut **(Alt+T)** to copy channel name. *(Ignored while typing in chat or other inputs.)*
+- [Twitch Chat Popout](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Chat-Popout.user.js)
+    - Adds a chat-icon button to the player control bar that opens the channel's chat popout in a small window.
+    - Only runs on `player.twitch.tv` and `embed.twitch.tv` player pages, never on regular twitch.tv pages or clips.
 - [PayCheck for Twitter](https://github.com/yungsamd17/paycheck-userscript/raw/main/userscript/paycheck-for-twitter.user.js) / [Repo](https://github.com/yungsamd17/paycheck-userscript)
     - **UserScript** to see _(a very VERY rough idea of)_ how much money a post(Tweet) is worth.
 - [Remove Twitter Verify buttons and banners](https://github.com/yungsamd17/UserScripts/raw/main/scripts/Remove-Twitter-Verify-from-Home-page.user.js)

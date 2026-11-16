@@ -46,13 +46,20 @@
                 </ul>
                 <a href="https://github.com/yungsamd17/UserScripts/raw/main/scripts/Change-Player-Twitch-Title.user.js">Change player.twitch.tv Title</a>
                 <ul>
-                    <li>Changes tabs title on load with channels username on player.twitch.tv pages.</li>
+                    <li>Changes the tab title on player.twitch.tv pages to the channel name.</li>
+                    <li>Falls back to the name in the URL, then upgrades to the correctly-cased name once the player loads.</li>
                 </ul>
                 <a href="https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Channel-Copy-Button.user.js">Twitch Channel Copy Button</a>
                 <ul>
                     <li>Adds a button with copy icon to the Player to enable you to copy to channel username.</li>
+                    <li>Works on <code>player.twitch.tv</code>, <code>embed.twitch.tv</code> and <code>www.twitch.tv/&lt;channel&gt;</code> pages.</li>
                     <li>Useful for <a class="secondary-link" href="https://chatterino.com" target="_blank">Chatterino <i class="fa-solid fa-arrow-up-right-from-square"></i></a> users to quickly open a channel in a new tab. <em>(Best with Ctrl+K)</em></li>
-                    <li>You can also use keyboard shortcut <b>(Alt+T)</b> to copy channel name.</li>
+                    <li>You can also use keyboard shortcut <b>(Alt+T)</b> to copy channel name. <em>(Ignored while typing in chat or other inputs.)</em></li>
+                </ul>
+                <a href="https://github.com/yungsamd17/UserScripts/raw/main/scripts/Twitch-Chat-Popout.user.js">Twitch Chat Popout</a>
+                <ul>
+                    <li>Adds a chat-icon button to the player control bar that opens the channel's chat popout in a small window.</li>
+                    <li>Only runs on <code>player.twitch.tv</code> and <code>embed.twitch.tv</code> player pages, never on regular twitch.tv pages or clips.</li>
                 </ul>
                 <a href="https://github.com/yungsamd17/paycheck-userscript/raw/main/userscript/paycheck-for-twitter.user.js">PayCheck for Twitter</a> / <a href="https://github.com/yungsamd17/paycheck-userscript">Repo</a>
                 <ul>
